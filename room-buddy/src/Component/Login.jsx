@@ -1,17 +1,17 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    // handle login logic here
-  };
-
+  const handleSignUp = () => {
+      navigate("/signup")
+  }; 
   return (
     <div>
-      <form onSubmit={handleLogin}>
+      <form onSubmit={(e) => e.preventDefault()}>
         <div className="login-main-upper-div">
           <div className="login-main-div">
             <h1 className="h1-login">Login</h1>
@@ -20,7 +20,7 @@ const Login = () => {
               <input
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.currentTarget.value)}
               />
             </label>
             <label>
@@ -28,11 +28,13 @@ const Login = () => {
               <input
                 type="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.currentTarget.value)}
               />
             </label>
             <button type="submit">Login</button>
-            <button type="submit" style={{ marginBottom: "-5px" }}>Sign-Up</button>
+            <button type="button" style={{ marginBottom: "-5px" }} onClick={handleSignUp}>
+              Sign-Up
+            </button>
           </div>
         </div>
       </form>
