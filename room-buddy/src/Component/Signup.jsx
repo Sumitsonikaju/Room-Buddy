@@ -66,9 +66,8 @@ const Signup = () => {
                 value={lookingFor}
                 onChange={(e) => setLookingFor(e.target.value)}
               >
-                <option value="">Select One</option>
                 <option value="couple">As a couple</option>
-                <option value="individual">For myself</option>
+                <option value="individual" selected>For myself</option>
                 <option value="group">As a group of friends</option>
               </select>
             </label>
@@ -78,7 +77,6 @@ const Signup = () => {
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
               >
-                <option value="">Select One</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
